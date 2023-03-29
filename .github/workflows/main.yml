@@ -1,0 +1,29 @@
+name: Interview Workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+ 
+    - name: Fetch secret
+      run: |
+        secret=$(aws secretsmanager get-secret-value --secret-id "extend-interview/donaho" --query "SecretString" --output text)
+        echo "$secret" > interview-secret.txt
+        echo "$secret"
+      env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.USER_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.USER_SECRET }}
+          AWS_DEFAULT_REGION: 'us-east-1'
+    - name: Upload logfile
+      uses: actions/upload-artifact@v2
+      with:
+        name: interview-secret
+        path: interview-secret.txt
