@@ -1,3 +1,4 @@
+#this file contains the terraform plan
 aws_iam_user.interview-bot: Refreshing state... [id=interview-bot]
 data.aws_iam_policy_document.bot-policy: Reading...
 data.aws_iam_policy_document.bot-policy: Read complete after 0s [id=2689579859]
