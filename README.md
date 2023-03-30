@@ -1,2 +1,2 @@
 # interview-on-secrets
-repository has the terraform code code anf the github actions work flow
+repository has the terraform code and the github actions work flow
