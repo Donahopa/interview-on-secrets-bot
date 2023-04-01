@@ -1,7 +1,7 @@
 name: Interview Workflow
 
 on:
-  push:
+  pull_request:
     branches:
       - main
   
