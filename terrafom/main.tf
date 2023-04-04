@@ -4,7 +4,7 @@ resource "aws_secretsmanager_secret" "extend-interview" {
 
 resource "aws_secretsmanager_secret_version" "value" {
   secret_id     = aws_secretsmanager_secret.extend-interview.id
-  secret_string = formatdate("03/20/2023", timestamp())
+  secret_string = formatdate("MM/DD/YYYY", timestamp())
 }
 
 resource "aws_iam_user" "interview-developer" {
